@@ -3,7 +3,7 @@
 // ////////////////////////////////////////////////////////////////////////////
 // SCM: $Id: AutoHardwareMecanum.java 191 2019-11-15 19:35:45Z veeral $
 // ////////////////////////////////////////////////////////////////////////////
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.OnBotCopy;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;

@@ -3,7 +3,7 @@
 // ////////////////////////////////////////////////////////////////////////////
 // SCM: $Id: RobotDriveDualMotor.java 194 2019-11-16 08:55:04Z harshal $
 // ////////////////////////////////////////////////////////////////////////////
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.OnBotCopy;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;

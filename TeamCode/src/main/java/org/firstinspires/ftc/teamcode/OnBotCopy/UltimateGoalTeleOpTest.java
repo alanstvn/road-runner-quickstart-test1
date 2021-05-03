@@ -27,9 +27,13 @@
      * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
      */
 
-    package org.firstinspires.ftc.teamcode;
+    package org.firstinspires.ftc.teamcode.OnBotCopy;
 
+    import com.qualcomm.robotcore.hardware.MotorControlAlgorithm;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
     import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+    import com.qualcomm.robotcore.hardware.DcMotorEx;
+    import com.qualcomm.robotcore.hardware.PIDFCoefficients;
     import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
     import com.qualcomm.robotcore.hardware.DcMotor;
     import com.qualcomm.robotcore.hardware.DigitalChannel;
@@ -50,9 +54,9 @@
      * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
      */
 
-    @TeleOp(name="UltimateGoalShooterMoto`rEncoder", group="UltimateGoal")
+    @TeleOp(name="UltimateGoalTeleOpTest", group="UltimateGoal")
 
-    public class UltimateGoaTeleopTestShooterMotor extends OpMode
+    public class UltimateGoalTeleOpTest extends OpMode
     {
         /**
          * Hardware class implementation
@@ -64,7 +68,7 @@
          */
         RobotDrive               mDrive;
 
-
+        double velocity;
 
         private TelemetryLogger  mLogger;
 
@@ -73,7 +77,7 @@
          */
         private ElapsedTime         mTimer;
 
-
+        private DcMotorEx  mShooterMotorEx;
 
         @Override
         public void init()
@@ -97,8 +101,12 @@
             mDrive.prepareToRotate();
             
             mRobot.getShooterServo().setPosition(0.0);
-
-
+    
+            mShooterMotorEx =(DcMotorEx)mRobot.mShooterMotor;
+            if (mShooterMotorEx instanceof DcMotorEx){
+                telemetry.addLine("It works!");
+            }
+            
         }
 
         private void initLogging()
@@ -115,6 +123,11 @@
          */
         @Override
         public void init_loop() {
+            telemetry.clear();
+            telemetry.addData("Velocity of mShooterMotorEx", mShooterMotorEx.getVelocity());
+            if (mShooterMotorEx instanceof DcMotorEx){
+                telemetry.addLine("It works!");
+            }
         }
 
         /*
@@ -124,6 +137,12 @@
         public void start() {
             mTimer.reset();
             //shooterPower = 1.0;
+            // We show the log in oldest-newest order
+            telemetry.log().setDisplayOrder(Telemetry.Log.DisplayOrder.OLDEST_FIRST);
+            // We can control the number of lines shown in the log
+            telemetry.log().setCapacity(6);
+            //variables
+            double velocity = 1000;
         }
         
         /*
@@ -239,8 +258,29 @@
 //Sets Power and Position
             //Sets the intake motor power
             mRobot.mIntakeMotor.setPower(intakePower);
+            double p = 50.0;
+            double change = 100;
+            //Coefficients
+            mShooterMotorEx.setVelocityPIDFCoefficients(p, 0.0, 0.0, 0.0);
             //Sets the shooter motor power
-            mRobot.mShooterMotor.setPower(shooterPower);
+            // mShooterMotorEx.setPower(.7);
+            mShooterMotorEx.setVelocity(velocity);
+            //mShooterMotorEx.setPower(shooterPower);
+            //Tuning P
+            /*
+                if (gamepad2.a && velocity > 999){
+                    velocity -= change;
+                }
+                else if (gamepad2.b && velocity < 2300){
+                    velocity += change;
+                }
+                
+                telemetry.clear();
+                telemetry.addLine()
+                         .addData("Velocity of Shooter Motor", mShooterMotorEx.getVelocity());
+                telemetry.update();*/
+            //
+            //mRobot.mShooterMotor.setPower(shooterPower);
             //Sets the loader arm servo position
             mRobot.getShooterServo().setPosition(loaderPos);
         }
