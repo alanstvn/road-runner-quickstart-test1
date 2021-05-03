@@ -3,7 +3,7 @@
 // ////////////////////////////////////////////////////////////////////////////
 // SCM: $Id: SkystoneTestHardware.java 192 2019-11-15 22:02:29Z harshal $
 // ////////////////////////////////////////////////////////////////////////////
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.OnBotCopy;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.CameraName;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;

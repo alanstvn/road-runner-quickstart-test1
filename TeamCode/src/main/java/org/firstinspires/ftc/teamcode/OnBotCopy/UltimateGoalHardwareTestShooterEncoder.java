@@ -3,10 +3,9 @@
 // ////////////////////////////////////////////////////////////////////////////
 // SCM: $Id: SkystoneTestHardware.java 192 2019-11-15 22:02:29Z harshal $
 // ////////////////////////////////////////////////////////////////////////////
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.OnBotCopy;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.CameraName;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
@@ -25,7 +24,7 @@ import com.qualcomm.robotcore.hardware.Servo.Direction;
  *
  * @author Harshal Bharatia
  */
-public class UltimateGoalHardwareTest
+public class UltimateGoalHardwareTestShooterEncoder
 {
     /**
      * Left-back driving motor.
@@ -155,7 +154,7 @@ public class UltimateGoalHardwareTest
     //private DigitalChannel      mLowerArmMaxLimit;
 
     /* Constructor */
-    public UltimateGoalHardwareTest(OpMode owner, TelemetryLogger logger)
+    public UltimateGoalHardwareTestShooterEncoder(OpMode owner, TelemetryLogger logger)
     {
         mHardwareMap = owner.hardwareMap;
         mOwner = owner;
@@ -325,7 +324,6 @@ public class UltimateGoalHardwareTest
         mDropperServo = mHardwareMap.get(Servo.class, "wobbleDropper");
         mDropperServo.setDirection(Direction.FORWARD);
         mDropperServo.setPosition(0.0);
-        
 
         mWobbleArmServo = mHardwareMap.get(Servo.class, "wobbleArmGrip");
         mWobbleArmServo.setDirection(Direction.FORWARD);
@@ -606,13 +604,4 @@ public class UltimateGoalHardwareTest
     {
         return mDetectionCamera;
     }
-
-    //Convert Inches to Encoder Units
-    public static int inchesToEncoderTicks(double inches)
-    {
-        // Ticks/Rev * Gearing * Rev/Diameter = ticks per inches
-        double TICKS_PER_INCH = 28 * 5 * (75 * Math.PI * 1/0.0393701);
-        return (int) (inches * TICKS_PER_INCH);
-    }
-    
 }

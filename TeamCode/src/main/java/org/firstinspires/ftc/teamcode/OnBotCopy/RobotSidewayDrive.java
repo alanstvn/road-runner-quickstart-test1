@@ -3,7 +3,7 @@
 // ////////////////////////////////////////////////////////////////////////////
 // SCM: $Id: RobotSidewayDrive.java 191 2019-11-15 19:35:45Z veeral $
 // ////////////////////////////////////////////////////////////////////////////
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.OnBotCopy;
 
 /**
  * Sidways motion capable robot drive interface.
