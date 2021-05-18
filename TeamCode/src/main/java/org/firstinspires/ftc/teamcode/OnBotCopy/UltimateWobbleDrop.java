@@ -1,12 +1,13 @@
 package org.firstinspires.ftc.teamcode.OnBotCopy;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
+@Disabled
 @Autonomous(name = "UltimateWobbleDrop (Blocks to Java)", group = "")
 public class UltimateWobbleDrop extends LinearOpMode {
 
